@@ -1,0 +1,10 @@
+services:
+  eridu:
+    image: infra-eridu:latest
+    build:
+      context: .
+      args:
+        GO_VERSION: ${GO_VERSION}
+        PYTHON_VERSION: ${PYTHON_VERSION}
+        RUST_VERSION: ${RUST_VERSION}
+        NODE_VERSION: ${NODE_VERSION}
