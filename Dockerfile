@@ -51,8 +51,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
 FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates curl git \
-    build-essential pkg-config \
+    ca-certificates curl git unzip \
+    build-essential pkg-config cmake \
+    autoconf automake libtool \
+    clang lld lldb \
+    protobuf-compiler jq \
     libssl-dev zlib1g-dev libffi-dev \
     && rm -rf /var/lib/apt/lists/*
 
