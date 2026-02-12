@@ -3,6 +3,8 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
+export COMPOSE_BAKE=false
+
 MSG="${1:-}"
 
 # Git commit and push if a message was provided
