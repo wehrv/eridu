@@ -5,14 +5,8 @@ cd "$(dirname "$0")"
 
 export COMPOSE_BAKE=false
 
-MSG="${1:-}"
-
-# Git commit and push if a message was provided
-if [ -n "$MSG" ] && [ -d .git ]; then
-    git add -A
-    git commit -m "$MSG"
-    git push gitea main
-fi
+# Git operations (commit, push, first-run repo setup)
+~/apps/.launch.sh --git-only "${1:-}"
 
 # Fetch latest stable versions
 GO_VERSION=$(curl -fsSL 'https://go.dev/dl/?mode=json' | python3 -c "import sys,json; print(json.load(sys.stdin)[0]['version'])")
