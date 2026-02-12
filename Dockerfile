@@ -55,6 +55,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential pkg-config cmake \
     autoconf automake libtool \
     clang lld lldb \
+    gdb strace valgrind \
     protobuf-compiler jq \
     libssl-dev zlib1g-dev libffi-dev \
     && rm -rf /var/lib/apt/lists/*
@@ -69,4 +70,6 @@ ENV RUSTUP_HOME="/opt/rust/rustup"
 ENV CARGO_HOME="/opt/rust/cargo"
 ENV PATH="/usr/local/go/bin:${GOPATH}/bin:/opt/python/bin:/opt/rust/cargo/bin:/opt/node/bin:${PATH}"
 
-RUN go version && python3 --version && rustc --version && node --version
+RUN go install github.com/go-delve/delve/cmd/dlv@latest
+
+RUN go version && python3 --version && rustc --version && node --version && dlv version
