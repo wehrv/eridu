@@ -11,7 +11,7 @@ MSG="${1:-}"
 if [ -n "$MSG" ] && [ -d .git ]; then
     git add -A
     git commit -m "$MSG"
-    git push
+    git push gitea main
 fi
 
 # Fetch latest stable versions
