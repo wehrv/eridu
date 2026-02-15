@@ -71,5 +71,6 @@ ENV CARGO_HOME="/opt/rust/cargo"
 ENV PATH="/usr/local/go/bin:${GOPATH}/bin:/opt/python/bin:/opt/rust/cargo/bin:/opt/node/bin:${PATH}"
 
 RUN go install github.com/go-delve/delve/cmd/dlv@latest
+RUN npm install -g pnpm
 
-RUN go version && python3 --version && rustc --version && node --version && dlv version
+RUN go version && python3 --version && rustc --version && node --version && dlv version && pnpm --version
